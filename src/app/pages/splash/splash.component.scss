@@ -1,0 +1,125 @@
+.splash-root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: clamp(40px, 8vh, 80px) clamp(20px, 5vw, 40px) clamp(60px, 10vh, 100px);
+    box-sizing: border-box;
+    background: linear-gradient(135deg, #140034 0%, #01010D 100%);
+    position: relative;
+    overflow: hidden;
+
+    .ellipse-top {
+        position: absolute;
+        width: 400px;
+        height: 500px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #641C3C66 40%, #07011A 100%);
+        top: -80px;
+        left: 120px;
+        filter: blur(110px);
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    .ellipse-middle {
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #270D59 100%, #07011A00 0%);
+        top: 40%;
+        left: 200px;
+        transform: translate(-50%, -50%);
+        filter: blur(200px);
+        z-index: 0;
+        pointer-events: none;
+    }
+}
+
+.branding {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    animation: fadeInUp 0.8s ease-out 0.1s both;
+}
+
+.logo {
+    width: min(400px, 90vw);
+    height: min(400px, 90vw);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: clamp(20px, 5vh, 40px);
+    position: relative;
+    z-index: 2;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+
+    .logo-bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+        z-index: 1;
+    }
+
+    .logo-main {
+        position: relative;
+        width: 50%;
+        height: auto;
+        object-fit: contain;
+        display: block;
+        z-index: 2;
+        filter: drop-shadow(0 10px 30px rgba(123, 44, 255, 0.3));
+    }
+}
+
+.title {
+    font-size: clamp(32px, 7vw, 48px);
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #fff;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 12px #8354FF44;
+}
+
+.subtitle {
+    font-size: clamp(18px, 4vw, 24px);
+    color: #fff;
+    opacity: 0.85;
+    margin-bottom: 24px;
+    text-shadow: 0 1px 8px #DD356244;
+}
+
+.cta-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+    z-index: 2;
+    position: relative;
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+// Animações
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

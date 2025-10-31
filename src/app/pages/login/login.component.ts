@@ -1,0 +1,74 @@
+import { Component, inject } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
+import { ButtonComponent } from '../../components/button/button.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
+import { GradientButtonComponent } from '../../components/gradient-button/gradient-button.component';
+
+@Component({
+  selector: 'app-login',
+  standalone: true,
+  imports: [RouterLink, ButtonComponent, GradientButtonComponent, CommonModule, FormsModule],
+  templateUrl: './login.component.html',
+  styleUrl: './login.component.scss'
+})
+export class LoginComponent {
+  private authService = inject(AuthService);
+  private router = inject(Router);
+
+  email = '';
+  password = '';
+  isLoading = false;
+  errorMessage = '';
+
+  onSubmit() {
+    if (!this.email || !this.password) {
+      this.errorMessage = 'Por favor, preencha todos os campos';
+      return;
+    }
+
+    this.isLoading = true;
+    this.errorMessage = '';
+
+    this.authService.login({ email: this.email, password: this.password }).subscribe({
+      next: (response) => {
+        const token = this.authService.getToken();
+
+        if (token) {
+          this.router.navigate(['/home']);
+        } else {
+          this.errorMessage = 'Erro ao salvar credenciais. Tente novamente.';
+          this.isLoading = false;
+        }
+      },
+      error: (error) => {
+        let mensagemErro = 'Erro ao fazer login. Tente novamente.';
+
+        if (error.status === 0) {
+          mensagemErro = 'Erro de conexão. Verifique se o backend está rodando.';
+        } else if (error.status === 401) {
+          mensagemErro = error.error?.message || 'Email ou senha inválidos';
+        } else if (error.status === 404) {
+          mensagemErro = error.error?.message || 'Usuário não encontrado';
+        } else if (error.error?.message) {
+          mensagemErro = error.error.message;
+        }
+
+        this.errorMessage = mensagemErro;
+        this.isLoading = false;
+      },
+      complete: () => {
+        this.isLoading = false;
+      }
+    });
+  }
+
+  goToRegister() {
+    this.router.navigate(['/register']);
+  }
+
+  goBack() {
+    this.router.navigate(['/']);
+  }
+}

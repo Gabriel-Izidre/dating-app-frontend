@@ -1,0 +1,28 @@
+.gradient-btn {
+  padding: 14px 40px;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  background: none;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: inherit;
+  background-image: linear-gradient(135deg, #8354FF 0%, #DD3562 100%);
+  .icon {
+    font-size: 1.2em;
+    margin-left: 8px;
+    color: #fff;
+    background: none;
+    -webkit-text-fill-color: #fff;
+  }
+  &:hover {
+    filter: brightness(1.2);
+  }
+}

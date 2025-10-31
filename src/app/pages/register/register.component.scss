@@ -1,0 +1,110 @@
+.register-container {
+    background: linear-gradient(180deg, #1a0033 0%, #2d003c 100%);
+    border-radius: 24px;
+    padding: 32px 24px;
+    max-width: 400px;
+    margin: auto;
+    color: #fff;
+    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.photo-upload {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.photo-circle {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: #2d003c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.photo-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.camera-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(90deg, #ff4b2b, #ff416c);
+    border-radius: 50%;
+    padding: 6px;
+    color: #fff;
+    font-size: 1.2rem;
+    border: 2px solid #fff;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+input,
+select {
+    background: transparent;
+    border: 2px solid #a800ff;
+    border-radius: 24px;
+    padding: 10px 16px;
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+}
+
+input:focus,
+select:focus {
+    border-color: #ff416c;
+}
+
+label {
+    color: #ff416c;
+    font-size: 0.95rem;
+    margin-bottom: 2px;
+}
+
+button[type="submit"] {
+    background: linear-gradient(90deg, #ff4b2b, #ff416c);
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    padding: 12px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 16px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button[type="submit"]:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.error {
+    color: #ff416c;
+    text-align: center;
+    margin-top: 8px;
+}

@@ -1,0 +1,51 @@
+<div class="register-container">
+    <h1>Profile Details</h1>
+    <p>Fill up the following details</p>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="photo-upload">
+            <label for="profilePhoto">
+                <div class="photo-circle">
+                    <ng-container *ngIf="photoPreviewUrl; else defaultPhoto">
+                        <img [src]="photoPreviewUrl" alt="Profile Photo" />
+                    </ng-container>
+                    <ng-template #defaultPhoto>
+                        <i class="fa fa-user"></i>
+                    </ng-template>
+                    <span class="camera-icon">
+                        <i class="fa fa-camera"></i>
+                    </span>
+                </div>
+                <input id="profilePhoto" type="file" accept="image/*" (change)="onPhotoChange($event)" hidden />
+            </label>
+        </div>
+
+        <label>First Name</label>
+        <input formControlName="firstName" type="text" placeholder="First Name" />
+        <label>Last Name</label>
+        <input formControlName="lastName" type="text" placeholder="Last Name" />
+        <label>DOB</label>
+        <input formControlName="dob" type="date" placeholder="DOB" />
+        <label>Email</label>
+        <input formControlName="email" type="email" placeholder="Email" />
+        <label>Password</label>
+        <input formControlName="password" type="password" placeholder="Password" />
+        <label>Confirm Password</label>
+        <input formControlName="confirmPassword" type="password" placeholder="Confirm Password" />
+        <label>Gender</label>
+        <select formControlName="gender">
+            <option value="" disabled selected>Select gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+        <label>Preference</label>
+        <select formControlName="preference">
+            <option value="" disabled selected>Select preference</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+
+        <div *ngIf="errorMsg" class="error">{{ errorMsg }}</div>
+        <button type="submit" [disabled]="loading">Continue</button>
+    </form>
+</div>

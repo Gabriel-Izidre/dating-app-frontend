@@ -1,0 +1,40 @@
+<div class="home-root">
+
+    <div class="profile-card" *ngIf="currentProfile; else noUsers">
+        <div class="card-content">
+            <img [src]="getProfilePhoto()" class="profile-photo" />
+            <div class="pagination-dots" *ngIf="allPhotos.length > 1">
+                <span class="dot" *ngFor="let photo of allPhotos; let i = index"
+                    [class.active]="i === currentPhotoIndex" (click)="changePhoto(i)"></span>
+            </div>
+
+        </div>
+    </div>
+
+    <ng-template #noUsers>
+        <div class="no-users-card">
+            <div class="empty-state">
+                <h3>Nenhum perfil disponível</h3>
+                <p>Volte mais tarde para ver novos perfis!</p>
+                <button class="reload-btn" (click)="loadUsers()">Recarregar</button>
+            </div>
+        </div>
+    </ng-template>
+
+    <div class="action-buttons">
+        <button class="action-btn like" [disabled]="!currentProfile || isLoading" (click)="onLike()">
+            <i class="ph-bold ph-thumbs-up icon"></i>
+        </button>
+        <button class="action-btn dislike" [disabled]="!currentProfile || isLoading" (click)="onDislike()">
+            <i class="ph-bold ph-thumbs-down icon"></i>
+        </button>
+    </div>
+
+    <div class="loading-indicator" *ngIf="isLoading">
+        <div class="spinner"></div>
+        <p>Carregando perfis...</p>
+    </div>
+
+    <app-match-modal [isVisible]="showMatchModal" [userName]="matchedUserName" (closed)="onModalClosed()">
+    </app-match-modal>
+</div>

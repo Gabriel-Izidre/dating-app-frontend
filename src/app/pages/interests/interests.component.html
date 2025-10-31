@@ -1,0 +1,26 @@
+<div class="interests-container">
+    <div class="header">
+        <button class="back-btn">&larr;</button>
+    </div>
+    <h1>Likes, Interests</h1>
+    <p>Share your likes &amp; passion with others</p>
+
+    <div class="interests-list">
+        <div *ngIf="isLoading" class="loading">Carregando interesses...</div>
+        <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+        <ng-container *ngIf="!isLoading && !errorMessage">
+            <ng-container *ngFor="let interest of interests">
+                <button class="interest-btn" [class.selected]="isSelected(interest.name)"
+                    (click)="toggleInterest(interest.name)">
+                    <span class="icon">
+                        <i [ngClass]="interest.iconName"></i>
+                    </span>
+                    <span class="name">{{ interest.name }}</span>
+                </button>
+            </ng-container>
+        </ng-container>
+    </div>
+
+    <button class="load-more-btn" (click)="loadMore()">Load More</button>
+    <button class="continue-btn" (click)="continue()">Continue</button>
+</div>
