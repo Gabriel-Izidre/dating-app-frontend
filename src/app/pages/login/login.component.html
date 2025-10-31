@@ -8,7 +8,9 @@
         <app-input-text type="password" placeholder="Password" [value]="password"
             (valueChange)="password = $event"></app-input-text>
         <button type="button" class="signup-btn" (click)="goToRegister()">Registre-se</button>
-        <app-button textButton="{{ isLoading ? 'Entrando...' : 'Continuar' }}" [disabled]="isLoading"
-            (clicked)="onSubmit()"></app-button>
+        <div class="btnContainer">
+            <app-button textButton="{{ isLoading ? 'Entrando...' : 'Continuar' }}" [disabled]="isLoading"
+                (clicked)="onSubmit()"></app-button>
+        </div>
     </form>
 </div>

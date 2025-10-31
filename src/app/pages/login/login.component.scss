@@ -50,20 +50,10 @@
 
 }
 
-.continue-btn {
-    background: linear-gradient(90deg, #ff4b7d 0%, #7c3aed 100%);
-    color: #fff;
-    border: none;
-    border-radius: 32px;
-    padding: 0.9rem 0;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
+.btnContainer {
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
+    align-content: center;
 }
 
 .arrow {
