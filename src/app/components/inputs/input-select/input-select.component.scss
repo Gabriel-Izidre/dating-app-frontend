@@ -1,13 +1,4 @@
-.input-text-wrapper {
-    width: 100%;
-    max-width: 350px;
-    margin: 0 auto 0.7rem auto;
-    display: flex;
-    flex-direction: column;
-}
-
-input {
-    width: 100%;
+select {
     background: transparent;
     border: 2px solid #7c3aed;
     border-radius: 32px;
@@ -17,9 +8,8 @@ input {
     outline: none;
     margin-bottom: 0.2rem;
     transition: border-color 0.2s;
-    box-sizing: border-box;
 }
 
-input:focus {
+select:focus {
     border-color: #ff4b7d;
 }

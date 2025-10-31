@@ -1,0 +1,16 @@
+<div class="input-select-wrapper">
+    <div class="input-select-gradient">
+        <select [value]="value" (change)="onChange($event)" class="input-select">
+            <option value="" disabled hidden>{{ placeholder }}</option>
+            <ng-container *ngFor="let option of options">
+                <option [value]="option.value" [disabled]="option.disabled">{{ option.label }}</option>
+            </ng-container>
+        </select>
+        <span class="input-select-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 8L10 12L14 8" stroke="#bdbdbd" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+        </span>
+    </div>
+</div>

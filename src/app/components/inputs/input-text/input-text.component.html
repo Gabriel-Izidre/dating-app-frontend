@@ -1,1 +1,6 @@
-<p>input-text works!</p>
+<div class="input-text-wrapper">
+    <div class="input-text-gradient">
+        <input [type]="type" [placeholder]="placeholder" [value]="value" (input)="onInput($event)"
+            (focus)="focused = true" (blur)="focused = false" class="input-text" />
+    </div>
+</div>

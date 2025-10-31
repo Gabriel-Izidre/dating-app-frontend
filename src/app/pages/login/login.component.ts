@@ -1,15 +1,16 @@
+import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { ButtonComponent } from '../../components/button/button.component';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { AuthService } from '../../services/auth.service';
 import { GradientButtonComponent } from '../../components/gradient-button/gradient-button.component';
+import { InputTextComponent } from '../../components/inputs/input-text/input-text.component';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterLink, ButtonComponent, GradientButtonComponent, CommonModule, FormsModule],
+  imports: [RouterLink, ButtonComponent, GradientButtonComponent, CommonModule, FormsModule, InputTextComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
