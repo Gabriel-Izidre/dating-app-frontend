@@ -1,1 +1,6 @@
-<p>my-profile works!</p>
+<div class="profile-images">
+    <label for="profileImages">Selecione suas imagens:</label>
+    <input id="profileImages" type="file" multiple accept="image/*" (change)="onImagesSelected($event)">
+</div>
+
+<button type="button" class="logout-btn" (click)="logout()">Sair</button>

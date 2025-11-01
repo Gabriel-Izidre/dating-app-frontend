@@ -35,11 +35,11 @@ export class HomeComponent implements OnInit {
   get allPhotos(): string[] {
     if (!this.currentProfile) return [];
     const photos: string[] = [];
-    if (this.currentProfile.profilePhotoUrl) {
-      photos.push(this.currentProfile.profilePhotoUrl);
+    if (this.currentProfile.profilePhoto) {
+      photos.push(this.currentProfile.profilePhoto);
     }
-    if (Array.isArray(this.currentProfile.galleryPhotoUrls)) {
-      photos.push(...this.currentProfile.galleryPhotoUrls);
+    if (Array.isArray(this.currentProfile.galleryPhotos)) {
+      photos.push(...this.currentProfile.galleryPhotos);
     }
     return photos;
   }
@@ -67,8 +67,8 @@ export class HomeComponent implements OnInit {
   loadUsers() {
     this.isLoading = true;
     this.userService.getSuggestedUsers().subscribe({
-      next: (users: User[]) => {
-        this.users = users;
+      next: (response: any) => {
+        this.users = response.users || [];
         this.currentIndex = 0;
         this.currentPhotoIndex = 0;
         this.isLoading = false;
@@ -83,8 +83,8 @@ export class HomeComponent implements OnInit {
     if (!this.currentProfile || this.isLoading) return;
     this.isLoading = true;
     this.actionService.createAction({
-      type: 'like',
-      target: this.currentProfile._id
+      type: 1, // 1 para like
+      targetUser: this.currentProfile._id || this.currentProfile.id
     }).subscribe({
       next: () => this.nextProfile(),
       error: () => this.nextProfile()
@@ -95,8 +95,8 @@ export class HomeComponent implements OnInit {
     if (!this.currentProfile || this.isLoading) return;
     this.isLoading = true;
     this.actionService.createAction({
-      type: 'dislike',
-      target: this.currentProfile._id
+      type: 2, // 2 para dislike
+      targetUser: this.currentProfile._id || this.currentProfile.id
     }).subscribe({
       next: () => this.nextProfile(),
       error: () => this.nextProfile()

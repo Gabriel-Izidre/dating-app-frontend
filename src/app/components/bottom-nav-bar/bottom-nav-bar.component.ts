@@ -24,7 +24,7 @@ export class BottomNavBarComponent {
       case 'discover':
         this.router.navigate(['/lists']);
         break;
-      case 'myMatches':
+      case 'matches':
         this.router.navigate(['/matches']);
         break;
       case 'profile':

@@ -1,5 +1,5 @@
-export interface Match {
-  _id?: string;
-  users: string[];
-  createdAt?: string;
+export interface UserMatch {
+  name: string;
+  age: number | null;
+  createdAt: string;
 }

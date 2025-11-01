@@ -1,1 +1,23 @@
-<p>list works!</p>
+<div class="list-container">
+    <div *ngIf="isLoading" class="loading">Carregando...</div>
+    <div class="cards-grid" *ngIf="!isLoading">
+        <div class="user-card" *ngFor="let user of users">
+            <div class="card-header"></div>
+            <div class="card-body">
+                <!-- Imagem do perfil -->
+                <img *ngIf="user.profilePhoto" [src]="user.profilePhoto" alt="Foto de {{user.firstname}}"
+                    class="profile-photo" />
+            </div>
+            <div class="card-footer">
+                <div class="user-info">
+                    <span class="user-name">{{user.firstname}}, {{user.age}}</span>
+                </div>
+                <div class="user-photos">
+                    <span class="photo-icon">&#128247;</span>
+                    <span>{{user.galleryPhotos?.length || 1}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-bottom-nav-bar activeItem="discover"></app-bottom-nav-bar>

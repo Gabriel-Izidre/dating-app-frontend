@@ -1,479 +1,520 @@
-.home-root {
-  min-height: 100vh;
-  background: linear-gradient(180deg, #4a5f8f 0%, #2d1b4e 50%, #1a0033 100%);
-  display: flex;
-  flex-direction: column;
-  padding: clamp(16px, 4vw, 24px);
-  padding-bottom: clamp(80px, 20vw, 100px);
-  box-sizing: border-box;
-  position: relative;
-}
+ .home-root {
+     overflow-x: hidden;
+     overflow-y: auto;
+     min-height: 100vh;
+     background: linear-gradient(180deg, #4a5f8f 0%, #2d1b4e 50%, #1a0033 100%);
+     display: flex;
+     flex-direction: column;
+     padding: clamp(16px, 4vw, 24px);
+     padding-bottom: 84px;
+     box-sizing: border-box;
+     position: relative;
 
-// Header
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: clamp(16px, 4vh, 24px);
+     // Header
+     .header {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         margin-bottom: clamp(16px, 4vh, 24px);
 
-  .header-title {
-    color: white;
-    font-size: clamp(16px, 4vw, 20px);
-    font-weight: 400;
-    margin: 0;
-    letter-spacing: 0.5px;
-  }
+         .header-title {
+             color: white;
+             font-size: clamp(16px, 4vw, 20px);
+             font-weight: 400;
+             margin: 0;
+             letter-spacing: 0.5px;
+         }
 
-  .header-icons {
-    display: flex;
-    gap: clamp(8px, 2vw, 12px);
+         .header-icons {
+             display: flex;
+             gap: clamp(8px, 2vw, 12px);
 
-    .icon-button {
-      background: transparent;
-      border: none;
-      color: white;
-      font-size: clamp(18px, 4.5vw, 22px);
-      cursor: pointer;
-      padding: 8px;
-      transition: transform 0.3s ease;
+             .icon-button {
+                 background: transparent;
+                 border: none;
+                 color: white;
+                 font-size: clamp(18px, 4.5vw, 22px);
+                 cursor: pointer;
+                 padding: 8px;
+                 transition: transform 0.3s ease;
 
-      &:hover {
-        transform: scale(1.1);
-      }
-    }
-  }
-}
+                 &:hover {
+                     transform: scale(1.1);
+                 }
+             }
+         }
+     }
 
-// Add Story Button
-.story-add {
-  margin-bottom: clamp(16px, 4vh, 24px);
+     // Add Story Button
+     .story-add {
+         margin-bottom: clamp(16px, 4vh, 24px);
 
-  .add-story-btn {
-    background: linear-gradient(135deg, #DD3562 0%, #8354FF 100%);
-    border: none;
-    border-radius: clamp(20px, 4vw, 24px);
-    padding: clamp(10px, 2.5vw, 14px) clamp(16px, 4vw, 24px);
-    color: white;
-    font-size: clamp(13px, 3.5vw, 15px);
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(221, 53, 98, 0.4);
+         .add-story-btn {
+             background: linear-gradient(135deg, #DD3562 0%, #8354FF 100%);
+             border: none;
+             border-radius: clamp(20px, 4vw, 24px);
+             padding: clamp(10px, 2.5vw, 14px) clamp(16px, 4vw, 24px);
+             color: white;
+             font-size: clamp(13px, 3.5vw, 15px);
+             font-weight: 600;
+             cursor: pointer;
+             display: flex;
+             align-items: center;
+             gap: 8px;
+             transition: all 0.3s ease;
+             box-shadow: 0 4px 12px rgba(221, 53, 98, 0.4);
 
-    .plus-icon {
-      font-size: clamp(16px, 4vw, 20px);
-      font-weight: bold;
-    }
+             .plus-icon {
+                 font-size: clamp(16px, 4vw, 20px);
+                 font-weight: bold;
+             }
 
-    &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(221, 53, 98, 0.6);
-    }
-  }
-}
+             &:hover {
+                 transform: translateY(-2px);
+                 box-shadow: 0 6px 16px rgba(221, 53, 98, 0.6);
+             }
+         }
+     }
 
-// Profile Card
-.profile-card {
-  background: #21154C;
-  border: 2px solid;
-  border-image: linear-gradient(135deg, #8354FF, #DD3562) 1;
-  border-radius: clamp(20px, 5vw, 32px);
-  padding: clamp(20px, 5vw, 30px);
-  position: relative;
-  margin-bottom: clamp(20px, 5vh, 30px);
-  min-height: clamp(300px, 50vh, 400px);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+     // Profile Card
+     .profile-card {
+         background: #21154C;
+         border: 2px solid;
+         border-image: linear-gradient(135deg, #8354FF, #DD3562) 1;
+         border-radius: clamp(20px, 5vw, 32px);
+         padding: clamp(20px, 5vw, 30px);
+         position: relative;
+         margin-bottom: clamp(20px, 5vh, 30px);
+         min-height: clamp(400px, 60vh, 520px);
+         width: 100%;
+         max-width: 370px;
+         margin: 0 auto clamp(20px, 5vh, 30px) auto;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: flex-end;
+         background: #21154C;
+         border: 2px solid;
+         border-image: linear-gradient(135deg, #8354FF, #DD3562) 1;
+         border-radius: clamp(20px, 5vw, 32px);
+         padding: clamp(20px, 5vw, 30px);
+         box-shadow: 0 4px 24px #00000033;
+         width: 100%;
+         max-width: 320px;
+         height: clamp(320px, 50vh, 420px);
+         object-fit: cover;
+         border-radius: clamp(24px, 6vw, 32px);
+         box-shadow: 0 4px 24px #00000033;
+         position: relative;
+         width: 100%;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
 
-  .lock-icon {
-    position: absolute;
-    top: clamp(12px, 3vw, 16px);
-    right: clamp(12px, 3vw, 16px);
-    background: rgba(255, 255, 255, 0.1);
-    border: none;
-    border-radius: 50%;
-    width: clamp(32px, 8vw, 40px);
-    height: clamp(32px, 8vw, 40px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: clamp(14px, 3.5vw, 18px);
-    transition: all 0.3s ease;
+         .lock-icon {
+             position: absolute;
+             top: clamp(12px, 3vw, 16px);
+             right: clamp(12px, 3vw, 16px);
+             background: rgba(255, 255, 255, 0.1);
+             border: none;
+             border-radius: 50%;
+             width: clamp(32px, 8vw, 40px);
+             height: clamp(32px, 8vw, 40px);
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             cursor: pointer;
+             font-size: clamp(14px, 3.5vw, 18px);
+             transition: all 0.3s ease;
 
-    &:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-  }
+             &:hover {
+                 background: rgba(255, 255, 255, 0.2);
+             }
+         }
 
-  .card-content {
-    position: relative;
-    z-index: 2;
-  }
+         .card-content {
+             position: relative;
+             z-index: 2;
+         }
 
-  .profile-info {
-    display: flex;
-    align-items: center;
-    gap: clamp(12px, 3vw, 16px);
-    margin-bottom: clamp(12px, 3vh, 16px);
+         .profile-info {
+             display: flex;
+             align-items: center;
+             gap: clamp(12px, 3vw, 16px);
+             margin-bottom: clamp(12px, 3vh, 16px);
 
-    .avatar {
-      width: clamp(50px, 12vw, 70px);
-      height: clamp(50px, 12vw, 70px);
-      border-radius: 50%;
-      background: linear-gradient(135deg, #8354FF, #DD3562);
-      border: 3px solid rgba(255, 255, 255, 0.3);
-    }
+             .avatar {
+                 width: clamp(50px, 12vw, 70px);
+                 height: clamp(50px, 12vw, 70px);
+                 border-radius: 50%;
+                 background: linear-gradient(135deg, #8354FF, #DD3562);
+                 border: 3px solid rgba(255, 255, 255, 0.3);
+             }
 
-    .user-info {
-      flex: 1;
+             .user-info {
+                 flex: 1;
 
-      .user-name {
-        color: white;
-        font-size: clamp(16px, 4vw, 20px);
-        font-weight: 600;
-        margin: 0 0 clamp(4px, 1vh, 6px) 0;
-        letter-spacing: 0.5px;
-      }
+                 .user-name {
+                     color: white;
+                     font-size: clamp(16px, 4vw, 20px);
+                     font-weight: 600;
+                     margin: 0 0 clamp(4px, 1vh, 6px) 0;
+                     letter-spacing: 0.5px;
+                 }
 
-      .user-age {
-        color: rgba(255, 255, 255, 0.7);
-        font-size: clamp(12px, 3vw, 14px);
-        margin: 0;
-      }
-    }
-  }
+                 .user-age {
+                     color: rgba(255, 255, 255, 0.7);
+                     font-size: clamp(12px, 3vw, 14px);
+                     margin: 0;
+                 }
+             }
+         }
 
-  .pagination-dots {
-    display: flex;
-    gap: 6px;
-    margin-bottom: clamp(8px, 2vh, 12px);
+         .pagination-dots {
+             margin-top: 16px;
+             margin-top: 18px;
+             text-align: center;
+         }
 
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.3);
-      transition: all 0.3s ease;
+         .profile-name {
+             color: #fff;
+             font-size: 1.3rem;
+             font-weight: 600;
+             margin-bottom: 4px;
+         }
 
-      &.active {
-        background: white;
-        width: 12px;
-      }
-    }
-  }
+         display: flex;
+         gap: 6px;
+         margin-bottom: clamp(8px, 2vh, 12px);
 
-  .chat-icon {
-    position: absolute;
-    bottom: clamp(12px, 3vw, 16px);
-    right: clamp(12px, 3vw, 16px);
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    width: clamp(40px, 10vw, 50px);
-    height: clamp(40px, 10vw, 50px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: clamp(18px, 4.5vw, 22px);
-    transition: all 0.3s ease;
+         .dot {
+             width: 8px;
+             height: 8px;
+             border-radius: 50%;
+             background: rgba(255, 255, 255, 0.3);
+             transition: all 0.3s ease;
 
-    &:hover {
-      background: rgba(255, 255, 255, 0.2);
-      transform: scale(1.05);
-    }
-  }
-}
+             &.active {
+                 background: white;
+                 width: 12px;
+             }
+         }
+     }
 
-// Action Buttons
-.action-buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: clamp(16px, 4vw, 24px);
-  margin-bottom: clamp(16px, 4vh, 24px);
+     .chat-icon {
+         position: absolute;
+         bottom: clamp(12px, 3vw, 16px);
+         right: clamp(12px, 3vw, 16px);
+         background: rgba(255, 255, 255, 0.1);
+         border: 1px solid rgba(255, 255, 255, 0.2);
+         border-radius: 50%;
+         width: clamp(40px, 10vw, 50px);
+         height: clamp(40px, 10vw, 50px);
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         cursor: pointer;
+         font-size: clamp(18px, 4.5vw, 22px);
+         transition: all 0.3s ease;
 
-  .action-btn {
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    font-size: clamp(18px, 4.5vw, 24px);
+         &:hover {
+             background: rgba(255, 255, 255, 0.2);
+             transform: scale(1.05);
+         }
+     }
+ }
 
-    .icon {
-      color: white;
-    }
+ // Action Buttons
+ .action-buttons {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     gap: clamp(16px, 4vw, 24px);
+     margin-bottom: clamp(16px, 4vh, 24px);
 
-    &:hover {
-      transform: scale(1.1);
-    }
+     .action-btn {
+         border: none;
+         border-radius: 50%;
+         cursor: pointer;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         transition: all 0.3s ease;
+         font-size: clamp(18px, 4.5vw, 24px);
 
-    &:active {
-      transform: scale(0.95);
-    }
+         .icon {
+             color: white;
+         }
 
-    &.rewind {
-      width: clamp(45px, 11vw, 55px);
-      height: clamp(45px, 11vw, 55px);
-      background: linear-gradient(135deg, #4CAF50, #2E7D32);
-      box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
-    }
+         &:hover {
+             transform: scale(1.1);
+         }
 
-    &.dislike {
-      width: clamp(50px, 12vw, 60px);
-      height: clamp(50px, 12vw, 60px);
-      background: linear-gradient(135deg, #FF9800, #F57C00);
-      box-shadow: 0 4px 12px rgba(255, 152, 0, 0.4);
-    }
+         &:active {
+             transform: scale(0.95);
+         }
 
-    &.like {
-      width: clamp(50px, 12vw, 60px);
-      height: clamp(50px, 12vw, 60px);
-      background: linear-gradient(135deg, #E91E63, #C2185B);
-      box-shadow: 0 4px 12px rgba(233, 30, 99, 0.4);
-    }
-  }
-}
+         &.rewind {
+             width: clamp(45px, 11vw, 55px);
+             height: clamp(45px, 11vw, 55px);
+             background: linear-gradient(135deg, #4CAF50, #2E7D32);
+             box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+         }
 
-// Size Indicator
-.size-indicator {
-  text-align: center;
-  margin-bottom: clamp(16px, 4vh, 24px);
+         &.dislike {
+             width: clamp(50px, 12vw, 60px);
+             height: clamp(50px, 12vw, 60px);
+             background: linear-gradient(135deg, #FF3B30, #C62828);
+             box-shadow: 0 4px 12px rgba(255, 59, 48, 0.4);
+         }
 
-  .size-text {
-    background: linear-gradient(135deg, #00BCD4, #0097A7);
-    color: white;
-    padding: clamp(6px, 1.5vw, 8px) clamp(16px, 4vw, 24px);
-    border-radius: clamp(12px, 3vw, 16px);
-    font-size: clamp(12px, 3vw, 14px);
-    font-weight: 600;
-    display: inline-block;
-  }
-}
+         &.like {
+             width: clamp(50px, 12vw, 60px);
+             height: clamp(50px, 12vw, 60px);
+             background: linear-gradient(135deg, #2196F3, #1565C0);
+             box-shadow: 0 8px 24px rgba(33, 150, 243, 0.25);
+             filter: none;
+             outline: 2px solid #2196F3;
+             outline-offset: 0px;
+             /* Removido qualquer blur/borrado */
+         }
+     }
+ }
 
-// Responsividade
-@media (max-width: 768px) {
-  .home-root {
-    padding: 12px;
-  }
+ // Size Indicator
+ .size-indicator {
+     text-align: center;
+     margin-bottom: clamp(16px, 4vh, 24px);
 
-  .profile-card {
-    min-height: 350px;
-  }
-}
+     .size-text {
+         background: linear-gradient(135deg, #00BCD4, #0097A7);
+         color: white;
+         padding: clamp(6px, 1.5vw, 8px) clamp(16px, 4vw, 24px);
+         border-radius: clamp(12px, 3vw, 16px);
+         font-size: clamp(12px, 3vw, 14px);
+         font-weight: 600;
+         display: inline-block;
+     }
+ }
 
-@media (max-width: 480px) {
-  .header {
-    margin-bottom: 12px;
-  }
+ // Responsividade
+ @media (max-width: 768px) {
+     .home-root {
+         padding: 12px;
+     }
 
-  .action-buttons {
-    gap: 12px;
-  }
-}
+     .profile-card {
+         min-height: 350px;
+     }
+ }
 
-// No Users Card
-.no-users-card {
-  background: #21154C;
-  border: 2px solid;
-  border-image: linear-gradient(135deg, #8354FF, #DD3562) 1;
-  border-radius: clamp(20px, 5vw, 32px);
-  padding: clamp(40px, 10vw, 60px);
-  text-align: center;
-  margin-bottom: clamp(20px, 5vh, 30px);
+ @media (max-width: 480px) {
+     .header {
+         margin-bottom: 12px;
+     }
 
-  .empty-state {
-    .empty-icon {
-      font-size: clamp(60px, 15vw, 80px);
-      display: block;
-      margin-bottom: 20px;
-    }
+     .action-buttons {
+         gap: 12px;
+     }
+ }
 
-    h3 {
-      color: white;
-      font-size: clamp(18px, 4.5vw, 24px);
-      margin: 0 0 12px 0;
-    }
+ // No Users Card
+ .no-users-card {
+     background: #21154C;
+     border: 2px solid;
+     border-image: linear-gradient(135deg, #8354FF, #DD3562) 1;
+     border-radius: clamp(20px, 5vw, 32px);
+     padding: clamp(40px, 10vw, 60px);
+     text-align: center;
+     margin-bottom: clamp(20px, 5vh, 30px);
 
-    p {
-      color: rgba(255, 255, 255, 0.7);
-      font-size: clamp(14px, 3.5vw, 16px);
-      margin: 0 0 24px 0;
-    }
+     .empty-state {
+         .empty-icon {
+             font-size: clamp(60px, 15vw, 80px);
+             display: block;
+             margin-bottom: 20px;
+         }
 
-    .reload-btn {
-      background: linear-gradient(135deg, #8354FF 0%, #DD3562 100%);
-      border: none;
-      border-radius: 24px;
-      padding: 12px 32px;
-      color: white;
-      font-size: clamp(14px, 3.5vw, 16px);
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
+         h3 {
+             color: white;
+             font-size: clamp(18px, 4.5vw, 24px);
+             margin: 0 0 12px 0;
+         }
 
-      &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(131, 84, 255, 0.5);
-      }
-    }
-  }
-}
+         p {
+             color: rgba(255, 255, 255, 0.7);
+             font-size: clamp(14px, 3.5vw, 16px);
+             margin: 0 0 24px 0;
+         }
 
-// Loading Indicator
-.loading-indicator {
-  position: fixed;
-  bottom: 120px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(33, 21, 76, 0.95);
-  border: 1px solid rgba(131, 84, 255, 0.3);
-  border-radius: 20px;
-  padding: 16px 24px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: white;
-  font-size: 14px;
-  z-index: 1000;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+         .reload-btn {
+             background: linear-gradient(135deg, #8354FF 0%, #DD3562 100%);
+             border: none;
+             border-radius: 24px;
+             padding: 12px 32px;
+             color: white;
+             font-size: clamp(14px, 3.5vw, 16px);
+             font-weight: 600;
+             cursor: pointer;
+             transition: all 0.3s ease;
 
-  .spinner {
-    width: 20px;
-    height: 20px;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-top-color: #8354FF;
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-  }
-}
+             &:hover {
+                 transform: translateY(-2px);
+                 box-shadow: 0 6px 20px rgba(131, 84, 255, 0.5);
+             }
+         }
+     }
+ }
 
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
+ // Loading Indicator
+ .loading-indicator {
+     position: fixed;
+     bottom: 120px;
+     left: 50%;
+     transform: translateX(-50%);
+     background: rgba(33, 21, 76, 0.95);
+     border: 1px solid rgba(131, 84, 255, 0.3);
+     border-radius: 20px;
+     padding: 16px 24px;
+     display: flex;
+     align-items: center;
+     gap: 12px;
+     color: white;
+     font-size: 14px;
+     z-index: 1000;
+     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 
-// Card Content Styles
-.card-content {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-radius: 16px;
-  min-height: 300px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  overflow: hidden;
+     .spinner {
+         width: 20px;
+         height: 20px;
+         border: 2px solid rgba(255, 255, 255, 0.3);
+         border-top-color: #8354FF;
+         border-radius: 50%;
+         animation: spin 0.8s linear infinite;
+     }
+ }
 
-  &::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 50%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-    z-index: 1;
-  }
+ @keyframes spin {
+     to {
+         transform: rotate(360deg);
+     }
+ }
 
-  // Estilo para quando não há foto
-  &.no-photo {
-    justify-content: center;
-    align-items: center;
+ // Card Content Styles
+ .card-content {
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+     border-radius: 16px;
+     min-height: 300px;
+     position: relative;
+     display: flex;
+     flex-direction: column;
+     justify-content: flex-end;
+     overflow: hidden;
 
-    &::before {
-      display: none;
-    }
+     &::before {
+         content: '';
+         position: absolute;
+         bottom: 0;
+         left: 0;
+         right: 0;
+         height: 50%;
+         background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+         z-index: 1;
+     }
 
-    .profile-info {
-      text-align: center;
-      padding: 40px 20px;
-    }
-  }
+     // Estilo para quando não há foto
+     &.no-photo {
+         justify-content: center;
+         align-items: center;
 
-  .profile-info {
-    position: relative;
-    z-index: 2;
-    padding: 20px;
+         &::before {
+             display: none;
+         }
 
-    .user-info {
-      .user-avatar {
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.2);
-        backdrop-filter: blur(10px);
-        border: 3px solid white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 20px;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+         .profile-info {
+             text-align: center;
+             padding: 40px 20px;
+         }
+     }
 
-        .initials {
-          font-size: 48px;
-          font-weight: 700;
-          color: white;
-          text-transform: uppercase;
-        }
-      }
+     .profile-info {
+         position: relative;
+         z-index: 2;
+         padding: 20px;
 
-      .user-name {
-        color: white;
-        font-size: clamp(20px, 5vw, 28px);
-        font-weight: 700;
-        margin: 0 0 8px 0;
-        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-      }
+         .user-info {
+             .user-avatar {
+                 width: 120px;
+                 height: 120px;
+                 border-radius: 50%;
+                 background: rgba(255, 255, 255, 0.2);
+                 backdrop-filter: blur(10px);
+                 border: 3px solid white;
+                 display: flex;
+                 align-items: center;
+                 justify-content: center;
+                 margin: 0 auto 20px;
+                 box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 
-      .user-details {
-        color: rgba(255, 255, 255, 0.9);
-        font-size: clamp(14px, 3.5vw, 16px);
-        margin: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+                 .initials {
+                     font-size: 48px;
+                     font-weight: 700;
+                     color: white;
+                     text-transform: uppercase;
+                 }
+             }
 
-        .gender-badge {
-          font-size: 18px;
-        }
-      }
-    }
-  }
+             .user-name {
+                 color: white;
+                 font-size: clamp(20px, 5vw, 28px);
+                 font-weight: 700;
+                 margin: 0 0 8px 0;
+                 text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+             }
 
-  .pagination-dots {
-    position: relative;
-    z-index: 2;
-    margin-bottom: 16px;
-  }
-}
+             .user-details {
+                 color: rgba(255, 255, 255, 0.9);
+                 font-size: clamp(14px, 3.5vw, 16px);
+                 margin: 0;
+                 display: flex;
+                 align-items: center;
+                 justify-content: center;
+                 gap: 8px;
+                 text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
 
-// Animações
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+                 .gender-badge {
+                     font-size: 18px;
+                 }
+             }
+         }
+     }
 
-.profile-card {
-  animation: fadeIn 0.6s ease-out;
-}
+     .pagination-dots {
+         position: relative;
+         z-index: 2;
+         margin-bottom: 16px;
+     }
+ }
 
-.action-buttons {
-  animation: fadeIn 0.8s ease-out 0.2s both;
-}
+ // Animações
+ @keyframes fadeIn {
+     from {
+         opacity: 0;
+         transform: translateY(20px);
+     }
+
+     to {
+         opacity: 1;
+         transform: translateY(0);
+     }
+ }
+
+ .profile-card {
+     animation: fadeIn 0.6s ease-out;
+ }
+
+ .action-buttons {
+     animation: fadeIn 0.8s ease-out 0.2s both;
+ }

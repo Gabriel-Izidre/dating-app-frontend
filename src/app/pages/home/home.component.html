@@ -1,10 +1,18 @@
 <div class="home-root">
     <div class="profile-card" *ngIf="currentProfile; else noUsersTemplate">
         <div class="card-content">
-            <img [src]="getProfilePhoto()" class="profile-photo" />
-            <div class="pagination-dots" *ngIf="allPhotos.length > 1">
-                <span class="dot" *ngFor="let photo of allPhotos; let i = index"
-                    [class.active]="i === currentPhotoIndex" (click)="changePhoto(i)"></span>
+            <div class="photo-wrapper">
+                <img [src]="getProfilePhoto()" class="profile-photo" />
+                <div class="pagination-dots" *ngIf="allPhotos.length > 1">
+                    <span class="dot" *ngFor="let photo of allPhotos; let i = index"
+                        [class.active]="i === currentPhotoIndex" (click)="changePhoto(i)"></span>
+                </div>
+            </div>
+            <div class="profile-info">
+                <div class="profile-name">
+                    {{ currentProfile.firstname || 'Sem nome' }}
+                    <span *ngIf="currentProfile.age">, {{ currentProfile.age }} anos</span>
+                </div>
             </div>
         </div>
     </div>

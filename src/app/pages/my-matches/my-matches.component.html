@@ -1,1 +1,27 @@
-<p>my-matches works!</p>
+<div class="matches-container">
+    <h2 class="title">Dating Matches</h2>
+    <p class="subtitle">Check out lists of matches &amp; keep enjoying</p>
+
+    <div class="tabs">
+        <span class="tab active">All</span>
+        <span class="tab">You Liked</span>
+        <span class="tab">Liked You</span>
+        <span class="tab">Views</span>
+    </div>
+
+    <div *ngIf="isLoading" class="loading">Loading...</div>
+    <div class="matches-list" *ngIf="!isLoading">
+        <div class="match-item" *ngFor="let match of matches">
+            <div class="avatar"></div>
+            <div class="match-info">
+                <div class="match-name">{{match.name}}</div>
+                <div class="match-desc">{{match.age ? match.age + ' anos' : ''}}</div>
+                <div class="match-date">{{match.createdAt | date:'short'}}</div>
+            </div>
+            <div class="match-actions">
+                <span class="dots">&#8942;</span>
+            </div>
+        </div>
+    </div>
+    <app-bottom-nav-bar activeItem="matches"></app-bottom-nav-bar>
+</div>
