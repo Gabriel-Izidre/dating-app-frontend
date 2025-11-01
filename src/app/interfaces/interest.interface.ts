@@ -1,5 +1,5 @@
 export interface Interest {
-  _id?: string;
+  id: string;
   name: string;
   iconName: string;
 }

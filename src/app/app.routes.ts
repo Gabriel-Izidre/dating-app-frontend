@@ -8,7 +8,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MyProfileComponent } from './pages/my-profile/my-profile.component';
 import { MyMatchesComponent } from './pages/my-matches/my-matches.component';
-import { UserDetailsComponent } from './pages/user-details/user-details.component';
+import { ListComponent } from './pages/list/list.component';
 
 export const routes: Routes = [
   {
@@ -47,8 +47,8 @@ export const routes: Routes = [
     canActivate: [authGuard],
   },
   {
-    path: 'user/:id',
-    component: UserDetailsComponent,
+    path: 'lists',
+    component: ListComponent,
     canActivate: [authGuard],
   }
 ];

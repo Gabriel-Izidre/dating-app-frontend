@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './match-modal.component.html',
-  styleUrl: './match-modal.component.scss'
+  styleUrls: ['./match-modal.component.scss']
 })
 export class MatchModalComponent {
   @Input() isVisible: boolean = false;

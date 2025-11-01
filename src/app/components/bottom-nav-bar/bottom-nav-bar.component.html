@@ -1,0 +1,14 @@
+<nav class="bottom-nav-bar">
+    <button class="nav-item" [class.active]="activeItem === 'home'" (click)="onItemClick('home')">
+        <i class="fa-solid fa-house nav-icon"></i>
+    </button>
+    <button class="nav-item" [class.active]="activeItem === 'discover'" (click)="onItemClick('discover')">
+        <i class="fa-solid fa-magnifying-glass nav-icon"></i>
+    </button>
+    <button class="nav-item" [class.active]="activeItem === 'messages'" (click)="onItemClick('messages')">
+        <i class="fa-solid fa-envelope nav-icon"></i>
+    </button>
+    <button class="nav-item" [class.active]="activeItem === 'profile'" (click)="onItemClick('profile')">
+        <i class="fa-solid fa-user nav-icon"></i>
+    </button>
+</nav>

@@ -1,6 +1,7 @@
 <div class="register-container">
-    <h1>Profile Details</h1>
-    <p>Fill up the following details</p>
+    <button class="back-btn" (click)="goBack()">&#8592;</button>
+    <h1>Detalhes do Perfil</h1>
+    <p>Preencha os dados abaixo</p>
 
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <div class="photo-upload">
@@ -20,32 +21,21 @@
             </label>
         </div>
 
-        <label>First Name</label>
-        <input formControlName="firstName" type="text" placeholder="First Name" />
-        <label>Last Name</label>
-        <input formControlName="lastName" type="text" placeholder="Last Name" />
-        <label>DOB</label>
-        <input formControlName="dob" type="date" placeholder="DOB" />
-        <label>Email</label>
-        <input formControlName="email" type="email" placeholder="Email" />
-        <label>Password</label>
-        <input formControlName="password" type="password" placeholder="Password" />
-        <label>Confirm Password</label>
-        <input formControlName="confirmPassword" type="password" placeholder="Confirm Password" />
-        <label>Gender</label>
-        <select formControlName="gender">
-            <option value="" disabled selected>Select gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-        </select>
-        <label>Preference</label>
-        <select formControlName="preference">
-            <option value="" disabled selected>Select preference</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-        </select>
+        <app-input-text formControlName="firstName" placeholder="Primeiro nome"></app-input-text>
+        <app-input-text formControlName="lastName" placeholder="Sobrenome"></app-input-text>
+        <app-input-date formControlName="dob" placeholder="Data de nascimento"></app-input-date>
+        <app-input-text formControlName="email" type="email" placeholder="E-mail"></app-input-text>
+        <app-input-text formControlName="password" type="password" placeholder="Senha"></app-input-text>
+        <app-input-text formControlName="confirmPassword" type="password"
+            placeholder="Confirmar senha"></app-input-text>
+        <app-input-select formControlName="gender" placeholder="Gênero"
+            [options]="[{label: 'Masculino', value: 'male'}, {label: 'Feminino', value: 'female'}]"></app-input-select>
+        <app-input-select formControlName="preference" placeholder="Preferência"
+            [options]="[{label: 'Masculino', value: 'male'}, {label: 'Feminino', value: 'female'}]"></app-input-select>
 
         <div *ngIf="errorMsg" class="error">{{ errorMsg }}</div>
-        <button type="submit" [disabled]="loading">Continue</button>
+        <div class="btnContainer">
+            <app-button type="button" [disabled]="loading" [textButton]="'Continuar'" (click)="onSubmit()"></app-button>
+        </div>
     </form>
 </div>

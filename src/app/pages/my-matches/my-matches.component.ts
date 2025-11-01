@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './my-matches.component.html',
-  styleUrl: './my-matches.component.scss'
+  styleUrls: ['./my-matches.component.scss']
 })
 export class MyMatchesComponent {
 

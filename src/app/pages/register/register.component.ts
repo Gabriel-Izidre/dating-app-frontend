@@ -4,11 +4,15 @@ import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
 import { RegisterRequest } from '../../interfaces/register-request.interface';
 import { Router } from '@angular/router';
+import { ButtonComponent } from '../../components/button/button.component';
+import { InputSelectComponent } from '../../components/inputs/input-select/input-select.component';
+import { InputTextComponent } from '../../components/inputs/input-text/input-text.component';
+import { InputDateComponent } from '../../components/inputs/input-date/input-date.component';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, ButtonComponent, InputSelectComponent, InputTextComponent, InputDateComponent],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
@@ -52,7 +56,6 @@ export class RegisterComponent {
     this.authService.registerWithPhoto(userData as RegisterRequest, this.photoFile).subscribe({
       next: () => {
         this.loading = false;
-        // Redirecionar ou mostrar sucesso
         this.router.navigate(['/interests']);
       },
       error: (err) => {
@@ -60,5 +63,9 @@ export class RegisterComponent {
         this.errorMsg = err.error?.mensagem || 'Erro ao registrar.';
       }
     });
+  }
+
+  goBack() {
+    this.router.navigate(['/login']);
   }
 }

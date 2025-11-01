@@ -1,18 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { ButtonComponent } from '../../components/button/button.component';
-import { GradientButtonComponent } from '../../components/gradient-button/gradient-button.component';
 import { InputTextComponent } from '../../components/inputs/input-text/input-text.component';
 import { AuthService } from '../../services/auth.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterLink, ButtonComponent, GradientButtonComponent, CommonModule, FormsModule, InputTextComponent],
+  imports: [ButtonComponent, CommonModule, FormsModule, InputTextComponent],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
   private authService = inject(AuthService);
@@ -43,7 +43,7 @@ export class LoginComponent {
           this.isLoading = false;
         }
       },
-      error: (error) => {
+      error: (error: HttpErrorResponse) => {
         let mensagemErro = 'Erro ao fazer login. Tente novamente.';
 
         if (error.status === 0) {

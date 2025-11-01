@@ -1,0 +1,9 @@
+<div class="input-date-wrapper">
+    <div class="input-date-gradient" style="position: relative;">
+        <input #dateInput type="date" [value]="value" (input)="onInput($event)" (focus)="focused = true"
+            (blur)="onBlur()" class="input-date" />
+        <span class="calendar-icon" (click)="openCalendar(dateInput)">
+            <i class="fa fa-calendar"></i>
+        </span>
+    </div>
+</div>

@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [GradientButtonComponent],
   templateUrl: './splash.component.html',
-  styleUrl: './splash.component.scss'
+  styleUrls: ['./splash.component.scss']
 })
 export class SplashComponent {
 

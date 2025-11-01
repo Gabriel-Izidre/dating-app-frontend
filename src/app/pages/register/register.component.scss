@@ -1,5 +1,4 @@
 .register-container {
-    background: linear-gradient(180deg, #1a0033 0%, #2d003c 100%);
     border-radius: 24px;
     padding: 32px 24px;
     max-width: 400px;
@@ -63,48 +62,25 @@ form {
     gap: 12px;
 }
 
-input,
-select {
-    background: transparent;
-    border: 2px solid #a800ff;
-    border-radius: 24px;
-    padding: 10px 16px;
-    color: #fff;
-    font-size: 1rem;
-    outline: none;
-}
-
-input:focus,
-select:focus {
-    border-color: #ff416c;
-}
-
-label {
-    color: #ff416c;
-    font-size: 0.95rem;
-    margin-bottom: 2px;
-}
-
-button[type="submit"] {
-    background: linear-gradient(90deg, #ff4b2b, #ff416c);
-    color: #fff;
-    border: none;
-    border-radius: 24px;
-    padding: 12px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    margin-top: 16px;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-button[type="submit"]:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-}
-
 .error {
     color: #ff416c;
     text-align: center;
     margin-top: 8px;
+}
+
+.btnContainer {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.back-btn {
+    position: absolute;
+    top: 32px;
+    left: 32px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
 }

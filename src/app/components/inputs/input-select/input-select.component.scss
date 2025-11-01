@@ -1,4 +1,13 @@
+.input-select-wrapper {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto 0.7rem auto;
+    display: flex;
+    flex-direction: column;
+}
+
 select {
+    width: 100%;
     background: transparent;
     border: 2px solid #7c3aed;
     border-radius: 32px;
@@ -12,4 +21,9 @@ select {
 
 select:focus {
     border-color: #ff4b7d;
+}
+
+select option {
+    background-color: #0b0b15;
+    color: #fff;
 }

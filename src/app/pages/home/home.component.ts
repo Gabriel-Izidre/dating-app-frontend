@@ -1,6 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatchModalComponent } from '../../components/match-modal/match-modal.component';
+import { BottomNavBarComponent } from '../../components/bottom-nav-bar/bottom-nav-bar.component';
 import { UserService } from '../../services/user.service';
 import { User } from '../../interfaces/user.interface';
 import { ActionService } from '../../services/action.service';
@@ -8,9 +9,9 @@ import { ActionService } from '../../services/action.service';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [MatchModalComponent, CommonModule],
+  imports: [MatchModalComponent, BottomNavBarComponent, CommonModule],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
   private userService = inject(UserService);
