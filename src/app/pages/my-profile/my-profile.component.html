@@ -1,6 +1,19 @@
 <div class="profile-images">
-    <label for="profileImages">Selecione suas imagens:</label>
-    <input id="profileImages" type="file" multiple accept="image/*" (change)="onImagesSelected($event)">
 </div>
-
-<button type="button" class="logout-btn" (click)="logout()">Sair</button>
+<div class="my-profile-root">
+    <div class="profile-header">
+        <h2>Meu Perfil</h2>
+    </div>
+    <div class="profile-images">
+        <label for="profileImages" class="custom-file-label">
+            <span class="file-label-text">Selecione suas imagens</span>
+            <input id="profileImages" type="file" multiple accept="image/*" (change)="onImagesSelected($event)"
+                class="custom-file-input">
+            <span class="file-icon"><i class="fa fa-camera"></i></span>
+        </label>
+    </div>
+    <div class="logout-btn-container">
+        <app-button [textButton]="'Sair'" (clicked)="logout()" type="button"></app-button>
+    </div>
+    <app-bottom-nav-bar activeItem="profile"></app-bottom-nav-bar>
+</div>

@@ -1,15 +1,8 @@
 <div class="matches-container">
-    <h2 class="title">Dating Matches</h2>
-    <p class="subtitle">Check out lists of matches &amp; keep enjoying</p>
+    <h2 class="title">Meus Matches</h2>
+    <p class="subtitle">Veja sua lista de matches e continue aproveitando!</p>
 
-    <div class="tabs">
-        <span class="tab active">All</span>
-        <span class="tab">You Liked</span>
-        <span class="tab">Liked You</span>
-        <span class="tab">Views</span>
-    </div>
-
-    <div *ngIf="isLoading" class="loading">Loading...</div>
+    <div *ngIf="isLoading" class="loading">Carregando...</div>
     <div class="matches-list" *ngIf="!isLoading">
         <div class="match-item" *ngFor="let match of matches">
             <div class="avatar"></div>

@@ -1,0 +1,77 @@
+.my-profile-root {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #140034 0%, #01010D 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 32px 0 80px 0;
+    box-sizing: border-box;
+}
+
+.profile-header {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.profile-header h2 {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.profile-images {
+    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.custom-file-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #2d003c;
+    border-radius: 32px;
+    padding: 16px 24px;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 12px #8354FF33;
+    transition: background 0.2s;
+}
+
+.custom-file-label:hover {
+    background: #3a1c6b;
+}
+
+.custom-file-input {
+    display: none;
+}
+
+.file-label-text {
+    font-weight: 500;
+}
+
+.file-icon {
+    font-size: 1.5rem;
+    color: #e84cff;
+    margin-left: 8px;
+}
+
+.logout-btn-container {
+    margin: 32px 0 0 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+app-bottom-nav-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+}

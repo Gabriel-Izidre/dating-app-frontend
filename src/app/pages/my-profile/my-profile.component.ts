@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { AuthService } from '../../services/auth.service';
+import { ButtonComponent } from '../../components/button/button.component';
+import { BottomNavBarComponent } from '../../components/bottom-nav-bar/bottom-nav-bar.component';
 
 @Component({
   selector: 'app-my-profile',
   standalone: true,
-  imports: [],
+  imports: [ButtonComponent, BottomNavBarComponent],
   templateUrl: './my-profile.component.html',
   styleUrls: ['./my-profile.component.scss']
 })

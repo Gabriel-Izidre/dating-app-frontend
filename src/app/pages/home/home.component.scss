@@ -2,7 +2,6 @@
      overflow-x: hidden;
      overflow-y: auto;
      min-height: 100vh;
-     background: linear-gradient(180deg, #4a5f8f 0%, #2d1b4e 50%, #1a0033 100%);
      display: flex;
      flex-direction: column;
      padding: clamp(16px, 4vw, 24px);
@@ -273,10 +272,17 @@
              height: clamp(50px, 12vw, 60px);
              background: linear-gradient(135deg, #2196F3, #1565C0);
              box-shadow: 0 8px 24px rgba(33, 150, 243, 0.25);
-             filter: none;
              outline: 2px solid #2196F3;
              outline-offset: 0px;
-             /* Removido qualquer blur/borrado */
+             filter: none !important;
+
+             .icon {
+                 color: #fff !important;
+                 font-size: 2rem;
+                 filter: none !important;
+                 text-shadow: 0 2px 8px #2196f388;
+                 opacity: 1 !important;
+             }
          }
      }
  }
