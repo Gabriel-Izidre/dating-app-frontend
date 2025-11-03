@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
 
   showMatchModal = false;
   matchedUserName = '';
+  matchedUserPhoto = '';
   users: User[] = [];
   currentIndex = 0;
   currentPhotoIndex = 0;
@@ -144,11 +145,20 @@ export class HomeComponent implements OnInit {
   onLike(): void {
     if (!this.currentProfile || this.isLoading) return;
     this.isLoading = true;
+    const currentUser = this.currentProfile;
     this.actionService.createAction({
       type: 1, // 1 para like
       targetUser: this.currentProfile._id || this.currentProfile.id
     }).subscribe({
-      next: () => this.nextProfile(),
+      next: (response) => {
+        if (response.match) {
+          this.matchedUserName = currentUser.firstname || 'Usuário';
+          this.matchedUserPhoto = this.getProfilePhoto();
+          this.showMatchModal = true;
+        } else {
+          this.nextProfile();
+        }
+      },
       error: () => this.nextProfile()
     });
   }
@@ -178,6 +188,8 @@ export class HomeComponent implements OnInit {
 
   onModalClosed(): void {
     this.showMatchModal = false;
+    this.matchedUserName = '';
+    this.matchedUserPhoto = '';
     this.nextProfile();
   }
 

@@ -23,9 +23,58 @@ export class LoginComponent {
   isLoading = false;
   errorMessage = '';
 
-  onSubmit() {
+  onEmailChange(value: string) {
+    this.email = value;
+    this.clearError();
+  }
+
+  onPasswordChange(value: string) {
+    this.password = value;
+    this.clearError();
+  }
+
+  clearError() {
+    if (this.errorMessage) {
+      this.errorMessage = '';
+    }
+  }
+
+  validateForm(): boolean {
     if (!this.email || !this.password) {
-      this.errorMessage = 'Por favor, preencha todos os campos';
+      this.showError('Por favor, preencha todos os campos');
+      return false;
+    }
+
+    if (!this.isValidEmail(this.email)) {
+      this.showError('Por favor, insira um email válido');
+      return false;
+    }
+
+    if (this.password.length < 6) {
+      this.showError('A senha deve ter pelo menos 6 caracteres');
+      return false;
+    }
+
+    return true;
+  }
+
+  isValidEmail(email: string): boolean {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+
+  showError(message: string) {
+    this.errorMessage = message;
+
+    setTimeout(() => {
+      if (this.errorMessage === message) {
+        this.errorMessage = '';
+      }
+    }, 5000);
+  }
+
+  onSubmit() {
+    if (!this.validateForm()) {
       return;
     }
 
@@ -39,7 +88,7 @@ export class LoginComponent {
         if (token) {
           this.router.navigate(['/home']);
         } else {
-          this.errorMessage = 'Erro ao salvar credenciais. Tente novamente.';
+          this.showError('Erro ao salvar credenciais. Tente novamente.');
           this.isLoading = false;
         }
       },
@@ -52,11 +101,13 @@ export class LoginComponent {
           mensagemErro = error.error?.message || 'Email ou senha inválidos';
         } else if (error.status === 404) {
           mensagemErro = error.error?.message || 'Usuário não encontrado';
+        } else if (error.status >= 500) {
+          mensagemErro = 'Erro no servidor. Tente novamente mais tarde.';
         } else if (error.error?.message) {
           mensagemErro = error.error.message;
         }
 
-        this.errorMessage = mensagemErro;
+        this.showError(mensagemErro);
         this.isLoading = false;
       },
       complete: () => {

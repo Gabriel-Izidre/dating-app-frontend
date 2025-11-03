@@ -88,12 +88,53 @@
 }
 
 .error-message {
-    color: #ff4b7d;
-    text-align: center;
-    margin-top: 1rem;
-    font-size: 0.9rem;
-    position: absolute;
-    bottom: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    border-radius: 12px;
+    margin-top: 1.5rem;
+    width: 100%;
+    max-width: 350px;
+    position: relative;
+    animation: slideIn 0.3s ease-out;
+    
+    // Estilo de erro igual ao perfil
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #ef4444;
+
+    i:first-child {
+        font-size: 18px;
+        flex-shrink: 0;
+    }
+
+    span {
+        flex: 1;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.4;
+    }
+}@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Responsividade mobile
+@media (max-width: 480px) {
+    .error-message {
+        max-width: 280px;
+        padding: 14px;
+
+        span {
+            font-size: 13px;
+        }
+    }
 }

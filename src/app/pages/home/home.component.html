@@ -41,7 +41,8 @@
         <p>Carregando perfis...</p>
     </div>
 
-    <app-match-modal [isVisible]="showMatchModal" [userName]="matchedUserName" (closed)="onModalClosed()">
+    <app-match-modal [isVisible]="showMatchModal" [userName]="matchedUserName" [userPhoto]="matchedUserPhoto"
+        [currentUserPhoto]="''" (closed)="onModalClosed()">
     </app-match-modal>
 
     <app-bottom-nav-bar [activeItem]="'home'"></app-bottom-nav-bar>

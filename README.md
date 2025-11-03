@@ -1,27 +1,94 @@
-# Front
+# Dating App Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
+Frontend em **Angular 17**, **TypeScript**, **SCSS** e **RxJS** para um aplicativo de encontros moderno e responsivo.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Requisitos
 
-## Code scaffolding
+-   Node.js 18+
+-   npm
+-   Angular CLI 17+
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## Instalação
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+npm install
+```
 
-## Running unit tests
+---
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Inicialização
 
-## Running end-to-end tests
+```bash
+ng serve
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+O aplicativo será iniciado em `http://localhost:4200/` com hot reload automático.
 
-## Further help
+---
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Tecnologias utilizadas
+
+-   **Angular 17**: Framework principal com componentes standalone
+-   **TypeScript**: Linguagem tipada para JavaScript
+-   **SCSS**: Pré-processador CSS para estilização avançada
+-   **RxJS**: Programação reativa para gerenciamento de estado
+-   **Font Awesome**: Ícones para interface moderna
+-   **Angular Router**: Navegação entre páginas
+-   **Reactive Forms**: Formulários reativos com validação
+
+---
+
+## Funcionalidades
+
+-   ✅ Autenticação (login/registro)
+-   ✅ Sistema de swipe (like/dislike)
+-   ✅ Visualização de perfis sugeridos
+-   ✅ Sistema de matches
+-   ✅ Upload de fotos de perfil
+-   ✅ Seleção de interesses
+-   ✅ Navegação com bottom navbar
+-   ✅ Design responsivo e moderno
+
+---
+
+## Estrutura do projeto
+
+```
+src/
+├── app/
+│   ├── components/          # Componentes reutilizáveis
+│   ├── pages/              # Páginas principais
+│   ├── services/           # Serviços para API
+│   ├── interfaces/         # Interfaces TypeScript
+│   ├── guards/             # Guards de autenticação
+│   └── interceptors/       # Interceptors HTTP
+├── assets/                 # Recursos estáticos
+└── environments/           # Configurações de ambiente
+```
+
+---
+
+## Scripts disponíveis
+
+-   `ng serve`: Inicia o servidor de desenvolvimento
+-   `ng build`: Build para produção
+-   `ng test`: Executa testes unitários
+-   `ng lint`: Verifica qualidade do código
+
+---
+
+## Configuração do ambiente
+
+O projeto está configurado para se conectar com o backend em `http://localhost:3000`. Para alterar, edite o arquivo `src/environments/environment.development.ts`.
+
+---
+
+## Autor
+
+Gabriel Izidre e Costa | RA: 194629
+
+---

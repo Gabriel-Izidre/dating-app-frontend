@@ -12,9 +12,14 @@
     <form (ngSubmit)="onSubmit()" class="login-form">
         <div class="inputs-container">
             <app-input-text type="email" placeholder="Email" [value]="email"
-                (valueChange)="email = $event"></app-input-text>
+                (valueChange)="onEmailChange($event)"></app-input-text>
             <app-input-text type="password" placeholder="Password" [value]="password"
-                (valueChange)="password = $event"></app-input-text>
+                (valueChange)="onPasswordChange($event)"></app-input-text>
+        </div>
+
+        <div class="error-message" *ngIf="errorMessage">
+            <i class="fa fa-exclamation-circle"></i>
+            <span>{{ errorMessage }}</span>
         </div>
 
         <button type="button" class="signup-btn" (click)="goToRegister()">Registre-se</button>
@@ -24,8 +29,4 @@
                 (clicked)="onSubmit()"></app-button>
         </div>
     </form>
-
-    <div class="error-message" *ngIf="errorMessage">
-        {{ errorMessage }}
-    </div>
 </div>
