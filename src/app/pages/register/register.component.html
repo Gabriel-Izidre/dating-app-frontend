@@ -11,11 +11,13 @@
                         <img [src]="photoPreviewUrl" alt="Profile Photo" />
                     </ng-container>
                     <ng-template #defaultPhoto>
-                        <i class="fa fa-user"></i>
+                        <div class="default-avatar">
+                            <i class="fa fa-user"></i>
+                        </div>
                     </ng-template>
-                    <span class="camera-icon">
+                    <div class="camera-icon">
                         <i class="fa fa-camera"></i>
-                    </span>
+                    </div>
                 </div>
                 <input id="profilePhoto" type="file" accept="image/*" (change)="onPhotoChange($event)" hidden />
             </label>

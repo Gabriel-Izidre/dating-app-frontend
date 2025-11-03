@@ -1,21 +1,22 @@
 <div class="home-root">
     <div class="profile-card" *ngIf="currentProfile; else noUsersTemplate">
-        <div class="card-content">
-            <div class="photo-wrapper">
-                <img [src]="getProfilePhoto()" class="profile-photo" />
-                <div class="pagination-dots" *ngIf="allPhotos.length > 1">
-                    <span class="dot" *ngFor="let photo of allPhotos; let i = index"
-                        [class.active]="i === currentPhotoIndex" (click)="changePhoto(i)"></span>
-                </div>
-            </div>
-            <div class="profile-info">
-                <div class="profile-name">
-                    {{ currentProfile.firstname || 'Sem nome' }}
-                    <span *ngIf="currentProfile.age">, {{ currentProfile.age }} anos</span>
-                </div>
+        <div class="photo-wrapper" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)"
+            (click)="onPhotoClick($event)">
+            <img [src]="getProfilePhoto()" class="profile-photo" (error)="onImageError($event)" />
+            <div class="photo-overlay"></div>
+            <div class="pagination-dots" *ngIf="allPhotos.length > 1">
+                <span class="dot" *ngFor="let photo of allPhotos; let i = index"
+                    [class.active]="i === currentPhotoIndex" (click)="changePhoto(i)"></span>
             </div>
         </div>
+        <div class="profile-info">
+            <h2 class="profile-name">
+                {{ currentProfile.firstname || 'Sem nome' }}<span *ngIf="currentProfile.age">, {{ currentProfile.age }}
+                    anos</span>
+            </h2>
+        </div>
     </div>
+
     <ng-template #noUsersTemplate>
         <div class="no-users-card">
             <div class="empty-state">
@@ -25,18 +26,23 @@
             </div>
         </div>
     </ng-template>
-    <app-bottom-nav-bar [activeItem]="'home'"></app-bottom-nav-bar>
+
     <div class="action-buttons" *ngIf="currentProfile">
         <button class="action-btn like" [disabled]="!currentProfile || isLoading" (click)="onLike()">
-            <i class="fa-solid fa-thumbs-up icon" style="color:#2196f3"></i>
+            <i class="fa-solid fa-thumbs-up"></i>
         </button>
         <button class="action-btn dislike" [disabled]="!currentProfile || isLoading" (click)="onDislike()">
-            <i class="fa-solid fa-thumbs-down icon"></i>
+            <i class="fa-solid fa-thumbs-down"></i>
         </button>
     </div>
+
     <div class="loading-indicator" *ngIf="isLoading">
         <div class="spinner"></div>
         <p>Carregando perfis...</p>
     </div>
+
     <app-match-modal [isVisible]="showMatchModal" [userName]="matchedUserName" (closed)="onModalClosed()">
     </app-match-modal>
+
+    <app-bottom-nav-bar [activeItem]="'home'"></app-bottom-nav-bar>
+</div>

@@ -3,39 +3,64 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 2rem;
+    justify-content: flex-start;
+    padding: 2rem 2rem 3rem 2rem;
+    position: relative;
 }
 
 .back-btn {
     position: absolute;
-    top: 32px;
+    top: 40px;
     left: 32px;
     background: none;
     border: none;
     color: #fff;
-    font-size: 2rem;
+    font-size: 1.8rem;
     cursor: pointer;
+    z-index: 10;
+}
+
+.login-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 6rem;
+    margin-bottom: 10rem;
 }
 
 .login-title {
     color: #fff;
-    font-size: 2.2rem;
-    font-weight: bold;
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin: 0 0 4rem 0;
+    text-align: center;
 }
 
 .logo-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 2.5rem;
+}
+
+.logo {
+    max-width: 180px;
+    height: auto;
 }
 
 .login-form {
     width: 100%;
+    max-width: 350px;
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    align-items: center;
+}
+
+.inputs-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .signup-btn {
@@ -44,18 +69,31 @@
     color: #ff4b7d;
     font-size: 1rem;
     cursor: pointer;
-    align-items: center;
     text-align: center;
     width: 100%;
+    margin-bottom: 2rem;
+    text-decoration: none;
+    font-weight: 400;
+}
+
+.signup-btn:hover {
+    color: #ff6b8d;
 }
 
 .btnContainer {
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
+    width: 100%;
 }
 
-.arrow {
-    font-size: 1.3rem;
-    margin-left: 0.3rem;
+.error-message {
+    color: #ff4b7d;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
 }

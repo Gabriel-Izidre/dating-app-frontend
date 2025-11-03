@@ -1,13 +1,13 @@
 button {
     width: 100%;
-    max-width: clamp(200px, 50vw, 280px);
+    max-width: clamp(300px, 85vw, 380px);
     background: linear-gradient(135deg, #DD3562, #8354FF);
-    border-radius: clamp(20px, 4vw, 28px);
-    padding: clamp(14px, 3.5vw, 18px) clamp(24px, 6vw, 40px);
+    border-radius: clamp(24px, 5vw, 32px);
+    padding: clamp(16px, 4vw, 20px) clamp(40px, 10vw, 60px);
     color: white;
     border: none;
     cursor: pointer;
-    font-size: clamp(15px, 4vw, 18px);
+    font-size: clamp(16px, 4.5vw, 20px);
     font-weight: 600;
     letter-spacing: 0.5px;
     transition: all 0.3s ease;
@@ -19,5 +19,11 @@ button {
 
     &:active {
         transform: translateY(0) scale(0.98);
+    }
+
+    &:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+        transform: none;
     }
 }

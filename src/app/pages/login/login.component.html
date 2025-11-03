@@ -1,16 +1,31 @@
 <div class="login-root">
     <button class="back-btn" (click)="goBack()">&#8592;</button>
-    <h1 class="login-title">Login</h1>
-    <img src="assets/logo.png" alt="Destined Logo" class="logo">
+
+    <div class="login-header">
+        <h1 class="login-title">Login</h1>
+
+        <div class="logo-container">
+            <img src="assets/logo.png" alt="Destined Logo" class="logo">
+        </div>
+    </div>
+
     <form (ngSubmit)="onSubmit()" class="login-form">
-        <app-input-text type="email" placeholder="Email" [value]="email"
-            (valueChange)="email = $event"></app-input-text>
-        <app-input-text type="password" placeholder="Password" [value]="password"
-            (valueChange)="password = $event"></app-input-text>
+        <div class="inputs-container">
+            <app-input-text type="email" placeholder="Email" [value]="email"
+                (valueChange)="email = $event"></app-input-text>
+            <app-input-text type="password" placeholder="Password" [value]="password"
+                (valueChange)="password = $event"></app-input-text>
+        </div>
+
         <button type="button" class="signup-btn" (click)="goToRegister()">Registre-se</button>
+
         <div class="btnContainer">
             <app-button textButton="{{ isLoading ? 'Entrando...' : 'Continuar' }}" [disabled]="isLoading"
                 (clicked)="onSubmit()"></app-button>
         </div>
     </form>
+
+    <div class="error-message" *ngIf="errorMessage">
+        {{ errorMessage }}
+    </div>
 </div>

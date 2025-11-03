@@ -1,10 +1,11 @@
-import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatchModalComponent } from '../../components/match-modal/match-modal.component';
+import { Component, OnInit, inject } from '@angular/core';
+import { environment } from '../../../environments/environment.development';
 import { BottomNavBarComponent } from '../../components/bottom-nav-bar/bottom-nav-bar.component';
-import { UserService } from '../../services/user.service';
+import { MatchModalComponent } from '../../components/match-modal/match-modal.component';
 import { User } from '../../interfaces/user.interface';
 import { ActionService } from '../../services/action.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -23,6 +24,9 @@ export class HomeComponent implements OnInit {
   currentIndex = 0;
   currentPhotoIndex = 0;
   isLoading = false;
+
+  private touchStartX = 0;
+  private touchEndX = 0;
 
   ngOnInit() {
     this.loadUsers();
@@ -47,14 +51,72 @@ export class HomeComponent implements OnInit {
   getProfilePhoto(): string {
     const photos = this.allPhotos;
     const photoUrl = photos[this.currentPhotoIndex];
-    if (!photoUrl)
+
+    if (!photoUrl) {
       return '';
-    else
+    }
+
+    if (photoUrl.startsWith('http')) {
       return photoUrl;
+    }
+
+    return `${environment.apiUrl}${photoUrl}`;
   }
 
   changePhoto(index: number): void {
     this.currentPhotoIndex = index;
+  }
+
+  onTouchStart(event: TouchEvent): void {
+    this.touchStartX = event.touches[0].clientX;
+  }
+
+  onTouchEnd(event: TouchEvent): void {
+    this.touchEndX = event.changedTouches[0].clientX;
+    this.handleSwipe();
+  }
+
+  onPhotoClick(event: MouseEvent): void {
+    if (this.allPhotos.length <= 1) return;
+
+    const clickX = event.clientX;
+    const imageWidth = (event.target as HTMLElement).offsetWidth;
+    const clickPosition = clickX / imageWidth;
+
+    if (clickPosition < 0.5) {
+      this.previousPhoto();
+    } else {
+      this.nextPhoto();
+    }
+  }
+
+  private handleSwipe(): void {
+    const swipeThreshold = 50;
+    const diff = this.touchStartX - this.touchEndX;
+
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) {
+        this.nextPhoto();
+      } else {
+        this.previousPhoto();
+      }
+    }
+  }
+
+  private nextPhoto(): void {
+    if (this.allPhotos.length <= 1) return;
+
+    if (this.currentPhotoIndex < this.allPhotos.length - 1) {
+      this.currentPhotoIndex++;
+    }
+  }
+
+  private previousPhoto(): void {
+    if (this.allPhotos.length <= 1) return;
+
+    if (this.currentPhotoIndex > 0) {
+      this.currentPhotoIndex--;
+    }
   }
 
   previousProfile(): void {
@@ -117,5 +179,13 @@ export class HomeComponent implements OnInit {
   onModalClosed(): void {
     this.showMatchModal = false;
     this.nextProfile();
+  }
+
+  onImageError(event: any): void {
+    event.target.style.display = 'none';
+    const parentElement = event.target.parentElement;
+    if (parentElement) {
+      parentElement.classList.add('image-error');
+    }
   }
 }

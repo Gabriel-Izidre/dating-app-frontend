@@ -5,14 +5,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 32px 0 80px 0;
+    padding: 32px 16px 80px 16px;
     box-sizing: border-box;
 }
 
 .profile-header {
     width: 100%;
     text-align: center;
-    margin-bottom: 24px;
+    margin-bottom: 32px;
 }
 
 .profile-header h2 {
@@ -22,49 +22,207 @@
     margin: 0;
 }
 
-.profile-images {
-    margin-bottom: 32px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.custom-file-label {
-    display: flex;
-    align-items: center;
+// Grid de fotos
+.photos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 12px;
-    background: #2d003c;
-    border-radius: 32px;
-    padding: 16px 24px;
-    color: #fff;
-    cursor: pointer;
+    max-width: 320px;
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.photo-slot {
+    aspect-ratio: 1;
+    border-radius: 16px;
     position: relative;
-    font-size: 1.1rem;
-    box-shadow: 0 2px 12px #8354FF33;
-    transition: background 0.2s;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100px;
 }
 
-.custom-file-label:hover {
-    background: #3a1c6b;
+// Slots vazios
+.empty-slot {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    i {
+        font-size: 32px;
+        color: rgba(255, 255, 255, 0.2);
+    }
 }
 
-.custom-file-input {
+// Slots com fotos
+.photo-slot:not(.empty-slot) {
+    background: #000;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+
+    .photo-preview {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 14px;
+    }
+
+    .remove-photo {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.7);
+        border: none;
+        color: #fff;
+        font-size: 14px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background: rgba(255, 0, 0, 0.7);
+            transform: scale(1.1);
+        }
+    }
+
+    .photo-number {
+        position: absolute;
+        bottom: 8px;
+        left: 8px;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: rgba(131, 84, 255, 0.9);
+        color: #fff;
+        font-size: 12px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+// Input oculto
+.hidden-file-input {
     display: none;
 }
 
-.file-label-text {
-    font-weight: 500;
+// Informações
+.photo-info {
+    text-align: center;
+    margin-bottom: 24px;
+
+    p {
+        color: #fff;
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0 0 8px 0;
+    }
+
+    .info-text {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 14px;
+        line-height: 1.4;
+    }
 }
 
-.file-icon {
-    font-size: 1.5rem;
-    color: #e84cff;
-    margin-left: 8px;
+// Mensagens de feedback
+.message {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    position: relative;
+    max-width: 320px;
+    width: 100%;
+    animation: slideIn 0.3s ease-out;
+
+    i:first-child {
+        font-size: 18px;
+        flex-shrink: 0;
+    }
+
+    span {
+        flex: 1;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.4;
+    }
+
+    .close-message {
+        background: none;
+        border: none;
+        color: inherit;
+        cursor: pointer;
+        padding: 4px;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        i {
+            font-size: 12px;
+        }
+    }
+
+    &.success {
+        background: rgba(34, 197, 94, 0.15);
+        border: 1px solid rgba(34, 197, 94, 0.3);
+        color: #22c55e;
+    }
+
+    &.error {
+        background: rgba(239, 68, 68, 0.15);
+        border: 1px solid rgba(239, 68, 68, 0.3);
+        color: #ef4444;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Botões principais
+.main-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 32px;
+    width: 100%;
+    max-width: 320px;
+
+    .select-btn,
+    .upload-btn {
+        width: 100%;
+    }
 }
 
 .logout-btn-container {
-    margin: 32px 0 0 0;
+    margin: 0;
     width: 100%;
+    max-width: 320px;
     display: flex;
     justify-content: center;
 }
@@ -74,4 +232,37 @@ app-bottom-nav-bar {
     bottom: 0;
     left: 0;
     width: 100vw;
+}
+
+// Responsividade
+@media (max-width: 480px) {
+    .my-profile-root {
+        padding: 24px 12px 80px 12px;
+    }
+
+    .photos-grid {
+        max-width: 280px;
+        gap: 8px;
+    }
+
+    .profile-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .message {
+        max-width: 280px;
+        padding: 14px;
+
+        span {
+            font-size: 13px;
+        }
+    }
+
+    .main-actions {
+        max-width: 280px;
+    }
+
+    .logout-btn-container {
+        max-width: 280px;
+    }
 }

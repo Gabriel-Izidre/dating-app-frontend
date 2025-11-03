@@ -1,23 +1,47 @@
 <div class="list-container">
-    <div *ngIf="isLoading" class="loading">Carregando...</div>
+    <div class="tabs-container">
+        <div class="tabs">
+            <button class="tab-button" [class.active]="activeTab === 'all'" (click)="setActiveTab('all')">
+                All
+            </button>
+            <button class="tab-button" [class.active]="activeTab === 'online'" (click)="setActiveTab('online')">
+                Online
+            </button>
+            <button class="tab-button" [class.active]="activeTab === 'new'" (click)="setActiveTab('new')">
+                New Daters
+            </button>
+            <button class="tab-button" [class.active]="activeTab === 'liked'" (click)="setActiveTab('liked')">
+                Liked You
+            </button>
+        </div>
+    </div>
+
+    <div *ngIf="isLoading" class="loading">
+        <div class="spinner"></div>
+        <p>Carregando...</p>
+    </div>
+
     <div class="cards-grid" *ngIf="!isLoading">
         <div class="user-card" *ngFor="let user of users">
-            <div class="card-header"></div>
             <div class="card-body">
-                <!-- Imagem do perfil -->
-                <img *ngIf="user.profilePhoto" [src]="user.profilePhoto" alt="Foto de {{user.firstname}}"
-                    class="profile-photo" />
+                <img *ngIf="user.profilePhoto" [src]="getProfilePhotoUrl(user.profilePhoto)"
+                    alt="Foto de {{user.firstname}}" class="profile-photo" (error)="onImageError($event)" />
+                <div *ngIf="!user.profilePhoto" class="no-photo">
+                    <i class="fa fa-user"></i>
+                </div>
             </div>
+
             <div class="card-footer">
                 <div class="user-info">
                     <span class="user-name">{{user.firstname}}, {{user.age}}</span>
                 </div>
                 <div class="user-photos">
-                    <span class="photo-icon">&#128247;</span>
-                    <span>{{user.galleryPhotos?.length || 1}}</span>
+                    <i class="fa fa-camera"></i>
+                    <span>{{getTotalPhotos(user)}}</span>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <app-bottom-nav-bar activeItem="discover"></app-bottom-nav-bar>

@@ -1,19 +1,53 @@
-<div class="profile-images">
-</div>
 <div class="my-profile-root">
     <div class="profile-header">
         <h2>Meu Perfil</h2>
     </div>
-    <div class="profile-images">
-        <label for="profileImages" class="custom-file-label">
-            <span class="file-label-text">Selecione suas imagens</span>
-            <input id="profileImages" type="file" multiple accept="image/*" (change)="onImagesSelected($event)"
-                class="custom-file-input">
-            <span class="file-icon"><i class="fa fa-camera"></i></span>
-        </label>
+
+    <div class="photos-grid">
+        <div class="photo-slot" *ngFor="let photo of selectedPhotos; let i = index">
+            <img [src]="photo.preview" [alt]="'Foto ' + (i + 1)" class="photo-preview">
+            <button class="remove-photo" (click)="removePhoto(i)">
+                <i class="fa fa-times"></i>
+            </button>
+            <div class="photo-number">{{i + 1}}</div>
+        </div>
+
+        <div class="photo-slot empty-slot" *ngFor="let slot of emptySlots">
+            <i class="fa fa-camera"></i>
+        </div>
     </div>
+
+    <input #fileInput type="file" multiple accept="image/*" (change)="onImagesSelected($event)"
+        class="hidden-file-input">
+
+    <div class="photo-info">
+        <p>{{selectedPhotos.length}} foto(s) selecionada(s)</p>
+        <span class="info-text">Selecione quantas fotos quiser para ter um perfil mais atrativo</span>
+    </div>
+
+    <div class="message" *ngIf="message" [class.success]="messageType === 'success'"
+        [class.error]="messageType === 'error'">
+        <i class="fa" [class.fa-check-circle]="messageType === 'success'"
+            [class.fa-exclamation-circle]="messageType === 'error'"></i>
+        <span>{{message}}</span>
+        <button class="close-message" (click)="clearMessage()">
+            <i class="fa fa-times"></i>
+        </button>
+    </div>
+
+    <div class="main-actions">
+        <app-button [textButton]="'Selecionar Fotos'" (clicked)="triggerFileInput()" type="button" class="select-btn">
+        </app-button>
+
+        <app-button [textButton]="isUploading ? 'Enviando...' : 'Enviar Fotos'" (clicked)="uploadPhotos()" type="button"
+            [disabled]="isUploading || selectedPhotos.length === 0" class="upload-btn"
+            *ngIf="selectedPhotos.length > 0">
+        </app-button>
+    </div>
+
     <div class="logout-btn-container">
         <app-button [textButton]="'Sair'" (clicked)="logout()" type="button"></app-button>
     </div>
+
     <app-bottom-nav-bar activeItem="profile"></app-bottom-nav-bar>
 </div>
